@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #F5F0E8;
+  --color-dark: #251E16;
+  --color-gold: #c9a96e;
+  --color-secondary: #7A6E62;
+  --color-card: #EDE6D9;
+  --color-stone: #B5A898;
+  --color-terra: #C0714E;
+  --color-olive: #7A8A6A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cormorant defaults to old-style figures ("120" reads as "I 20", "0" as "O") */
+.font-display {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Grain overlay ─────────────────────────────────────────── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* ── Range slider ─────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    #c9a96e var(--range-fill, 20%),
+    rgba(201, 169, 110, 0.15) var(--range-fill, 20%)
+  );
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #c9a96e;
+  border: 2.5px solid #251E16;
+  box-shadow: 0 0 0 5px rgba(201, 169, 110, 0.12);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  cursor: grab;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.14);
+  box-shadow: 0 0 0 10px rgba(201, 169, 110, 0.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #c9a96e;
+  border: 2.5px solid #251E16;
+  box-shadow: 0 0 0 5px rgba(201, 169, 110, 0.12);
+  cursor: grab;
+}
+
+input[type="range"]::-moz-range-progress {
+  background: #c9a96e;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* ── Selection highlight ───────────────────────────────────── */
+::selection {
+  background: rgba(201, 169, 110, 0.22);
+  color: inherit;
+}
+
+/* ── Focus visible ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 1.5px solid rgba(201, 169, 110, 0.6);
+  outline-offset: 3px;
+}
+
+/* ── Marquee ───────────────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* ── Editorial number style ────────────────────────────────── */
+.oldstyle-nums {
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* ── Accessibility polish ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #c9a96e;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
