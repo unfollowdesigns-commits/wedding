@@ -14,7 +14,7 @@ const config: Config = {
         "vow-gold": "#C9A96E",
         "vow-secondary": "#7A6E62",
         "vow-card": "#EDE6D9",
-        "vow-stone": "#B5A898",
+        "vow-stone": "#8F8272",
         "vow-terra": "#C0714E",
         "vow-olive": "#7A8A6A",
       },

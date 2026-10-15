@@ -91,7 +91,7 @@ export default function ComparisonTable() {
           <table className="w-full min-w-[640px]">
             <thead>
               <tr>
-                <th className="text-left pb-5 pr-6 text-[10.5px] tracking-[0.3em] uppercase text-vow-dark/30 font-sans font-normal w-[28%]" />
+                <th className="text-left pb-5 pr-6 text-[10.5px] tracking-[0.3em] uppercase text-vow-dark/50 font-sans font-normal w-[28%]" />
                 {/* Vow column header — highlighted */}
                 <th className="pb-5 px-6 bg-vow-card border-x border-t border-vow-gold/20 text-center">
                   <div className="font-display text-xl font-light text-vow-dark">Vow</div>
@@ -106,7 +106,7 @@ export default function ComparisonTable() {
                 ].map((col) => (
                   <th key={col.name} className="pb-5 px-4 text-center">
                     <div className="font-display text-lg font-light text-vow-dark/50">{col.name}</div>
-                    <div className="text-[10px] tracking-[0.2em] uppercase text-vow-dark/25 font-sans mt-1">
+                    <div className="text-[10px] tracking-[0.2em] uppercase text-vow-dark/50 font-sans mt-1">
                       {col.sub}
                     </div>
                   </th>
@@ -129,7 +129,7 @@ export default function ComparisonTable() {
                     <div className={`font-display text-xl ${checkColor(row.vow.val)}`}>
                       {row.vow.val}
                     </div>
-                    <div className="text-[10.5px] text-vow-dark/40 font-sans mt-0.5">
+                    <div className="text-[11px] text-vow-dark/60 font-sans mt-0.5">
                       {row.vow.note}
                     </div>
                   </td>
@@ -139,7 +139,7 @@ export default function ComparisonTable() {
                       <div className={`font-display text-xl ${checkColor(cell.val)}`}>
                         {cell.val}
                       </div>
-                      <div className="text-[10.5px] text-vow-dark/30 font-sans mt-0.5">
+                      <div className="text-[11px] text-vow-dark/55 font-sans mt-0.5">
                         {cell.note}
                       </div>
                     </td>
@@ -163,7 +163,7 @@ export default function ComparisonTable() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-6 text-[11px] text-vow-dark/30 font-sans"
+          className="mt-6 text-[11px] text-vow-dark/55 font-sans"
         >
           * The Knot earns revenue from vendor advertising. Your data funds their marketplace.
         </motion.p>
